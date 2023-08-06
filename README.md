@@ -108,6 +108,9 @@ localhost/laravel-websockets
             })
     </script>
 ...
+
+3.Serve the application, Fe need to subscribe to channel. 
+npm run dev
 ```
 
 
@@ -126,5 +129,11 @@ event (new \App\Events\NewTrade('test'))
 4. check for event againt localhost/laravel-websockets
 
 ```
+
+## 4. Proof
+
+![terminal](public/images/terminal.png)
+![laravel-websocket](public/images/laravel-websocket.png)
+![browser](public/images/browser.png)
 
 
