@@ -7,6 +7,9 @@
 
 Publish laravel sail 
 ```
+//set .env
+cp .env.example .env
+
 //need to access supervisord.conf later on
 sail artisan sail publish
 ```
