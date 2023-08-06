@@ -1,6 +1,8 @@
-## Laravel Websocket Sail
+# Laravel Websocket Vite Sail
 
-## Pre-req
+## 1. Laravel side 
+
+### Pre-requisites
 - laravel sail is up!
 
 Publish laravel sail 
@@ -87,6 +89,42 @@ monitor on websockets-laravel
 // on browser access
 
 localhost/laravel-websockets
+```
+
+## 2. Browser side
+
+```
+1. uncomment Echo relevant code in boostrap.js
+
+2.Add Echo to view 
+// welcome.blade.php
+...
+@vite('resources/js/app.js')
+...
+    <script type="module"> // somehow type="module" is needed as it ensure script runs before mounted. 
+        Echo.channel('trades')
+            .listen('NewTrade', (e) => {
+                console.log(e.trade);
+            })
+    </script>
+...
+```
+
+
+## 3. Test it out!
+
+```
+1. If you look at this code, i've already created an event which is broadcasted on 'trades' channel.
+
+2. Trigger this event in tinker
+//terminal
+sail artisan tinker
+event (new \App\Events\NewTrade('test'))
+
+3. inspect and look at browser console at localhost.
+
+4. check for event againt localhost/laravel-websockets
+
 ```
 
 
